@@ -9,6 +9,8 @@ import (
 	"unsafe"
 )
 
+type TA struct{}
+
 func init() {
 	n, err := C.TA_Initialize()
 	if n != 0 {
@@ -23,7 +25,7 @@ Input = double
 Output = double
 
 */
-func Acos(real []float64) []float64 {
+func (t *TA) Acos(real []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -38,7 +40,7 @@ Input = High, Low, Close, Volume
 Output = double
 
 */
-func Ad(high, low, close, volume []float64) []float64 {
+func (t *TA) Ad(high, low, close, volume []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(high))
@@ -53,7 +55,7 @@ Input = double, double
 Output = double
 
 */
-func Add(real0, real1 []float64) []float64 {
+func (t *TA) Add(real0, real1 []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real0))
@@ -80,7 +82,7 @@ optInSlowPeriod:(From 2 to 100000)
 Number of period for the slow MA
 
 */
-func AdOsc(high, low, close, volume []float64, fastPeriod, slowPeriod int32) []float64 {
+func (t *TA) AdOsc(high, low, close, volume []float64, fastPeriod, slowPeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(high))
@@ -103,7 +105,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func Adx(high, low, close []float64, timePeriod int32) []float64 {
+func (t *TA) Adx(high, low, close []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(high))
@@ -126,7 +128,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func Adxr(high, low, close []float64, timePeriod int32) []float64 {
+func (t *TA) Adxr(high, low, close []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(high))
@@ -157,7 +159,7 @@ optInMAType:
 Type of Moving Average
 
 */
-func Apo(real []float64, fastPeriod, slowPeriod, mAType int32) []float64 {
+func (t *TA) Apo(real []float64, fastPeriod, slowPeriod, mAType int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -180,7 +182,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func AroOn(high, low []float64, timePeriod int32) ([]float64, []float64) {
+func (t *TA) AroOn(high, low []float64, timePeriod int32) ([]float64, []float64) {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outAroonDown := make([]float64, len(high))
@@ -204,7 +206,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func AroOnOsc(high, low []float64, timePeriod int32) []float64 {
+func (t *TA) AroOnOsc(high, low []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(high))
@@ -219,7 +221,7 @@ Input = double
 Output = double
 
 */
-func Asin(real []float64) []float64 {
+func (t *TA) Asin(real []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -234,7 +236,7 @@ Input = double
 Output = double
 
 */
-func Atan(real []float64) []float64 {
+func (t *TA) Atan(real []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -257,7 +259,7 @@ optInTimePeriod:(From 1 to 100000)
 Number of period
 
 */
-func Atr(high, low, close []float64, timePeriod int32) []float64 {
+func (t *TA) Atr(high, low, close []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(high))
@@ -272,7 +274,7 @@ Input = Open, High, Low, Close
 Output = double
 
 */
-func AvgPrice(open, high, low, close []float64) []float64 {
+func (t *TA) AvgPrice(open, high, low, close []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(open))
@@ -307,7 +309,7 @@ optInMAType:
 Type of Moving Average
 
 */
-func BBands(real []float64, timePeriod int32, nbDevUp, nbDevDn float64, mAType int32) ([]float64, []float64, []float64) {
+func (t *TA) BBands(real []float64, timePeriod int32, nbDevUp, nbDevDn float64, mAType int32) ([]float64, []float64, []float64) {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outRealUpperBand := make([]float64, len(real))
@@ -332,7 +334,7 @@ optInTimePeriod:(From 1 to 100000)
 Number of period
 
 */
-func Beta(real0, real1 []float64, timePeriod int32) []float64 {
+func (t *TA) Beta(real0, real1 []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real0))
@@ -347,7 +349,7 @@ Input = Open, High, Low, Close
 Output = double
 
 */
-func Bop(open, high, low, close []float64) []float64 {
+func (t *TA) Bop(open, high, low, close []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(open))
@@ -370,7 +372,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func Cci(high, low, close []float64, timePeriod int32) []float64 {
+func (t *TA) Cci(high, low, close []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(high))
@@ -385,7 +387,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func Cdl2Crows(open, high, low, close []float64) []int32 {
+func (t *TA) Cdl2Crows(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -400,7 +402,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func Cdl3BlackCrows(open, high, low, close []float64) []int32 {
+func (t *TA) Cdl3BlackCrows(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -415,7 +417,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func Cdl3Inside(open, high, low, close []float64) []int32 {
+func (t *TA) Cdl3Inside(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -430,7 +432,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func Cdl3LineStrike(open, high, low, close []float64) []int32 {
+func (t *TA) Cdl3LineStrike(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -445,7 +447,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func Cdl3Outside(open, high, low, close []float64) []int32 {
+func (t *TA) Cdl3Outside(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -460,7 +462,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func Cdl3StarsinSouth(open, high, low, close []float64) []int32 {
+func (t *TA) Cdl3StarsinSouth(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -475,7 +477,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func Cdl3WhiteSoldiers(open, high, low, close []float64) []int32 {
+func (t *TA) Cdl3WhiteSoldiers(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -498,7 +500,7 @@ optInPenetration:(From 0 to TA_REAL_MAX)
 Percentage of penetration of a candle within another candle
 
 */
-func CdlAbandonedBaby(open, high, low, close []float64, penetration float64) []int32 {
+func (t *TA) CdlAbandonedBaby(open, high, low, close []float64, penetration float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -513,7 +515,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlAdvanceBlock(open, high, low, close []float64) []int32 {
+func (t *TA) CdlAdvanceBlock(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -528,7 +530,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlBelthold(open, high, low, close []float64) []int32 {
+func (t *TA) CdlBelthold(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -543,7 +545,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlBreakaway(open, high, low, close []float64) []int32 {
+func (t *TA) CdlBreakaway(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -558,7 +560,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlClosingMarubozu(open, high, low, close []float64) []int32 {
+func (t *TA) CdlClosingMarubozu(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -573,7 +575,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlConcealBabySwall(open, high, low, close []float64) []int32 {
+func (t *TA) CdlConcealBabySwall(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -588,7 +590,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlCounterattack(open, high, low, close []float64) []int32 {
+func (t *TA) CdlCounterattack(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -611,7 +613,7 @@ optInPenetration:(From 0 to TA_REAL_MAX)
 Percentage of penetration of a candle within another candle
 
 */
-func CdlDarkCloudCover(open, high, low, close []float64, penetration float64) []int32 {
+func (t *TA) CdlDarkCloudCover(open, high, low, close []float64, penetration float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -626,7 +628,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlDoji(open, high, low, close []float64) []int32 {
+func (t *TA) CdlDoji(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -641,7 +643,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlDojiStar(open, high, low, close []float64) []int32 {
+func (t *TA) CdlDojiStar(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -656,7 +658,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlDragonflyDoji(open, high, low, close []float64) []int32 {
+func (t *TA) CdlDragonflyDoji(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -671,7 +673,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlEngulfing(open, high, low, close []float64) []int32 {
+func (t *TA) CdlEngulfing(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -694,7 +696,7 @@ optInPenetration:(From 0 to TA_REAL_MAX)
 Percentage of penetration of a candle within another candle
 
 */
-func CdlEveningDojiStar(open, high, low, close []float64, penetration float64) []int32 {
+func (t *TA) CdlEveningDojiStar(open, high, low, close []float64, penetration float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -717,7 +719,7 @@ optInPenetration:(From 0 to TA_REAL_MAX)
 Percentage of penetration of a candle within another candle
 
 */
-func CdlEveningStar(open, high, low, close []float64, penetration float64) []int32 {
+func (t *TA) CdlEveningStar(open, high, low, close []float64, penetration float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -732,7 +734,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlGapSidesideWhite(open, high, low, close []float64) []int32 {
+func (t *TA) CdlGapSidesideWhite(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -747,7 +749,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlGravestoneDoji(open, high, low, close []float64) []int32 {
+func (t *TA) CdlGravestoneDoji(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -762,7 +764,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlHammer(open, high, low, close []float64) []int32 {
+func (t *TA) CdlHammer(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -777,7 +779,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlHangingMan(open, high, low, close []float64) []int32 {
+func (t *TA) CdlHangingMan(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -792,7 +794,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlHarami(open, high, low, close []float64) []int32 {
+func (t *TA) CdlHarami(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -807,7 +809,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlHaramiCross(open, high, low, close []float64) []int32 {
+func (t *TA) CdlHaramiCross(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -822,7 +824,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlHighWave(open, high, low, close []float64) []int32 {
+func (t *TA) CdlHighWave(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -837,7 +839,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlHikkake(open, high, low, close []float64) []int32 {
+func (t *TA) CdlHikkake(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -852,7 +854,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlHikkakeMod(open, high, low, close []float64) []int32 {
+func (t *TA) CdlHikkakeMod(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -867,7 +869,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlHomingPigeon(open, high, low, close []float64) []int32 {
+func (t *TA) CdlHomingPigeon(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -882,7 +884,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlIdentical3Crows(open, high, low, close []float64) []int32 {
+func (t *TA) CdlIdentical3Crows(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -897,7 +899,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlInNeck(open, high, low, close []float64) []int32 {
+func (t *TA) CdlInNeck(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -912,7 +914,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlInvertedHammer(open, high, low, close []float64) []int32 {
+func (t *TA) CdlInvertedHammer(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -927,7 +929,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlKicking(open, high, low, close []float64) []int32 {
+func (t *TA) CdlKicking(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -942,7 +944,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlKickingByLength(open, high, low, close []float64) []int32 {
+func (t *TA) CdlKickingByLength(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -957,7 +959,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlLadderBottom(open, high, low, close []float64) []int32 {
+func (t *TA) CdlLadderBottom(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -972,7 +974,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlLongLeggedDoji(open, high, low, close []float64) []int32 {
+func (t *TA) CdlLongLeggedDoji(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -987,7 +989,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlLongLine(open, high, low, close []float64) []int32 {
+func (t *TA) CdlLongLine(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -1002,7 +1004,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlMarubozu(open, high, low, close []float64) []int32 {
+func (t *TA) CdlMarubozu(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -1017,7 +1019,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlMatchingLow(open, high, low, close []float64) []int32 {
+func (t *TA) CdlMatchingLow(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -1040,7 +1042,7 @@ optInPenetration:(From 0 to TA_REAL_MAX)
 Percentage of penetration of a candle within another candle
 
 */
-func CdlMatHold(open, high, low, close []float64, penetration float64) []int32 {
+func (t *TA) CdlMatHold(open, high, low, close []float64, penetration float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -1063,7 +1065,7 @@ optInPenetration:(From 0 to TA_REAL_MAX)
 Percentage of penetration of a candle within another candle
 
 */
-func CdlMorningDojiStar(open, high, low, close []float64, penetration float64) []int32 {
+func (t *TA) CdlMorningDojiStar(open, high, low, close []float64, penetration float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -1086,7 +1088,7 @@ optInPenetration:(From 0 to TA_REAL_MAX)
 Percentage of penetration of a candle within another candle
 
 */
-func CdlMorningStar(open, high, low, close []float64, penetration float64) []int32 {
+func (t *TA) CdlMorningStar(open, high, low, close []float64, penetration float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -1101,7 +1103,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlOnNeck(open, high, low, close []float64) []int32 {
+func (t *TA) CdlOnNeck(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -1116,7 +1118,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlPiercing(open, high, low, close []float64) []int32 {
+func (t *TA) CdlPiercing(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -1131,7 +1133,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlRickshawMan(open, high, low, close []float64) []int32 {
+func (t *TA) CdlRickshawMan(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -1146,7 +1148,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlRiseFall3Methods(open, high, low, close []float64) []int32 {
+func (t *TA) CdlRiseFall3Methods(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -1161,7 +1163,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlSeparatingLines(open, high, low, close []float64) []int32 {
+func (t *TA) CdlSeparatingLines(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -1176,7 +1178,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlShootingStar(open, high, low, close []float64) []int32 {
+func (t *TA) CdlShootingStar(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -1191,7 +1193,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlShortLine(open, high, low, close []float64) []int32 {
+func (t *TA) CdlShortLine(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -1206,7 +1208,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlSpinningTop(open, high, low, close []float64) []int32 {
+func (t *TA) CdlSpinningTop(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -1221,7 +1223,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlStalledPattern(open, high, low, close []float64) []int32 {
+func (t *TA) CdlStalledPattern(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -1236,7 +1238,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlStickSandwich(open, high, low, close []float64) []int32 {
+func (t *TA) CdlStickSandwich(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -1251,7 +1253,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlTakuri(open, high, low, close []float64) []int32 {
+func (t *TA) CdlTakuri(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -1266,7 +1268,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlTasukiGap(open, high, low, close []float64) []int32 {
+func (t *TA) CdlTasukiGap(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -1281,7 +1283,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlThrusting(open, high, low, close []float64) []int32 {
+func (t *TA) CdlThrusting(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -1296,7 +1298,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlTristar(open, high, low, close []float64) []int32 {
+func (t *TA) CdlTristar(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -1311,7 +1313,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlUnique3River(open, high, low, close []float64) []int32 {
+func (t *TA) CdlUnique3River(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -1326,7 +1328,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlUpsideGap2Crows(open, high, low, close []float64) []int32 {
+func (t *TA) CdlUpsideGap2Crows(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -1341,7 +1343,7 @@ Input = Open, High, Low, Close
 Output = int
 
 */
-func CdlxSideGap3Methods(open, high, low, close []float64) []int32 {
+func (t *TA) CdlxSideGap3Methods(open, high, low, close []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(open))
@@ -1356,7 +1358,7 @@ Input = double
 Output = double
 
 */
-func Ceil(real []float64) []float64 {
+func (t *TA) Ceil(real []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -1379,7 +1381,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func Cmo(real []float64, timePeriod int32) []float64 {
+func (t *TA) Cmo(real []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -1402,7 +1404,7 @@ optInTimePeriod:(From 1 to 100000)
 Number of period
 
 */
-func Correl(real0, real1 []float64, timePeriod int32) []float64 {
+func (t *TA) Correl(real0, real1 []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real0))
@@ -1417,7 +1419,7 @@ Input = double
 Output = double
 
 */
-func Cos(real []float64) []float64 {
+func (t *TA) Cos(real []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -1432,7 +1434,7 @@ Input = double
 Output = double
 
 */
-func Cosh(real []float64) []float64 {
+func (t *TA) Cosh(real []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -1455,7 +1457,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func Dema(real []float64, timePeriod int32) []float64 {
+func (t *TA) Dema(real []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -1470,7 +1472,7 @@ Input = double, double
 Output = double
 
 */
-func Div(real0, real1 []float64) []float64 {
+func (t *TA) Div(real0, real1 []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real0))
@@ -1493,7 +1495,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func Dx(high, low, close []float64, timePeriod int32) []float64 {
+func (t *TA) Dx(high, low, close []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(high))
@@ -1516,7 +1518,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func Ema(real []float64, timePeriod int32) []float64 {
+func (t *TA) Ema(real []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -1531,7 +1533,7 @@ Input = double
 Output = double
 
 */
-func Exp(real []float64) []float64 {
+func (t *TA) Exp(real []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -1546,7 +1548,7 @@ Input = double
 Output = double
 
 */
-func Floor(real []float64) []float64 {
+func (t *TA) Floor(real []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -1561,7 +1563,7 @@ Input = double
 Output = double
 
 */
-func HtDcPeriod(real []float64) []float64 {
+func (t *TA) HtDcPeriod(real []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -1576,7 +1578,7 @@ Input = double
 Output = double
 
 */
-func HtDcPhase(real []float64) []float64 {
+func (t *TA) HtDcPhase(real []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -1591,7 +1593,7 @@ Input = double
 Output = double, double
 
 */
-func HtPhasor(real []float64) ([]float64, []float64) {
+func (t *TA) HtPhasor(real []float64) ([]float64, []float64) {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInPhase := make([]float64, len(real))
@@ -1607,7 +1609,7 @@ Input = double
 Output = double, double
 
 */
-func HtSine(real []float64) ([]float64, []float64) {
+func (t *TA) HtSine(real []float64) ([]float64, []float64) {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outSine := make([]float64, len(real))
@@ -1623,7 +1625,7 @@ Input = double
 Output = double
 
 */
-func HtTrendLine(real []float64) []float64 {
+func (t *TA) HtTrendLine(real []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -1638,7 +1640,7 @@ Input = double
 Output = int
 
 */
-func HtTrendMode(real []float64) []int32 {
+func (t *TA) HtTrendMode(real []float64) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(real))
@@ -1661,7 +1663,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func Kama(real []float64, timePeriod int32) []float64 {
+func (t *TA) Kama(real []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -1684,7 +1686,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func LinearReg(real []float64, timePeriod int32) []float64 {
+func (t *TA) LinearReg(real []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -1707,7 +1709,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func LinearRegAngle(real []float64, timePeriod int32) []float64 {
+func (t *TA) LinearRegAngle(real []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -1730,7 +1732,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func LinearRegIntercept(real []float64, timePeriod int32) []float64 {
+func (t *TA) LinearRegIntercept(real []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -1753,7 +1755,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func LinearRegSlope(real []float64, timePeriod int32) []float64 {
+func (t *TA) LinearRegSlope(real []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -1768,7 +1770,7 @@ Input = double
 Output = double
 
 */
-func Ln(real []float64) []float64 {
+func (t *TA) Ln(real []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -1783,7 +1785,7 @@ Input = double
 Output = double
 
 */
-func Log10(real []float64) []float64 {
+func (t *TA) Log10(real []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -1810,7 +1812,7 @@ optInMaType:
 Type of Moving Average
 
 */
-func Ma(real []float64, timePeriod, mAType int32) []float64 {
+func (t *TA) Ma(real []float64, timePeriod, mAType int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -1841,7 +1843,7 @@ optInSignalPeriod:(From 1 to 100000)
 Smoothing for the signal line (nb of period)
 
 */
-func Macd(real []float64, fastPeriod, slowPeriod, signalPeriod int32) ([]float64, []float64, []float64) {
+func (t *TA) Macd(real []float64, fastPeriod, slowPeriod, signalPeriod int32) ([]float64, []float64, []float64) {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outMACD := make([]float64, len(real))
@@ -1886,7 +1888,7 @@ optInSignalMAType:
 Type of Moving Average for signal line
 
 */
-func MacdExt(real []float64, fastPeriod, fastMAType, slowPeriod, slowMAType, signalPeriod, signalMAType int32) ([]float64, []float64, []float64) {
+func (t *TA) MacdExt(real []float64, fastPeriod, fastMAType, slowPeriod, slowMAType, signalPeriod, signalMAType int32) ([]float64, []float64, []float64) {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outMACD := make([]float64, len(real))
@@ -1911,7 +1913,7 @@ optInSignalPeriod:(From 1 to 100000)
 Smoothing for the signal line (nb of period)
 
 */
-func MacdFix(real []float64, signalPeriod int32) ([]float64, []float64, []float64) {
+func (t *TA) MacdFix(real []float64, signalPeriod int32) ([]float64, []float64, []float64) {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outMACD := make([]float64, len(real))
@@ -1940,7 +1942,7 @@ optInSlowLimit:(From 0.01 to 0.99)
 Lower limit use in the adaptive algorithm
 
 */
-func Mama(real []float64, fastLimit, slowLimit float64) ([]float64, []float64) {
+func (t *TA) Mama(real []float64, fastLimit, slowLimit float64) ([]float64, []float64) {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outMAMA := make([]float64, len(real))
@@ -1972,7 +1974,7 @@ optInMAType:
 Type of Moving Average
 
 */
-func Mavp(real, periods []float64, minPeriod, maxPeriod, mAType int32) []float64 {
+func (t *TA) Mavp(real, periods []float64, minPeriod, maxPeriod, mAType int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -1995,7 +1997,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func Max(real []float64, timePeriod int32) []float64 {
+func (t *TA) Max(real []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -2018,7 +2020,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func MaxIndex(real []float64, timePeriod int32) []int32 {
+func (t *TA) MaxIndex(real []float64, timePeriod int32) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(real))
@@ -2033,7 +2035,7 @@ Input = High, Low
 Output = double
 
 */
-func MedPrice(high, low []float64) []float64 {
+func (t *TA) MedPrice(high, low []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(high))
@@ -2056,7 +2058,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func Mfi(high, low, close, volume []float64, timePeriod int32) []float64 {
+func (t *TA) Mfi(high, low, close, volume []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(high))
@@ -2079,7 +2081,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func MidPoint(real []float64, timePeriod int32) []float64 {
+func (t *TA) MidPoint(real []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -2102,7 +2104,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func MidPrice(high, low []float64, timePeriod int32) []float64 {
+func (t *TA) MidPrice(high, low []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(high))
@@ -2125,7 +2127,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func Min(real []float64, timePeriod int32) []float64 {
+func (t *TA) Min(real []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -2148,7 +2150,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func MinIndex(real []float64, timePeriod int32) []int32 {
+func (t *TA) MinIndex(real []float64, timePeriod int32) []int32 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outInteger := make([]int32, len(real))
@@ -2171,7 +2173,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func MinMax(real []float64, timePeriod int32) ([]float64, []float64) {
+func (t *TA) MinMax(real []float64, timePeriod int32) ([]float64, []float64) {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outMin := make([]float64, len(real))
@@ -2195,7 +2197,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func MinMaxIndex(real []float64, timePeriod int32) ([]int32, []int32) {
+func (t *TA) MinMaxIndex(real []float64, timePeriod int32) ([]int32, []int32) {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outMinIdx := make([]int32, len(real))
@@ -2219,7 +2221,7 @@ optInTimePeriod:(From 1 to 100000)
 Number of period
 
 */
-func MinusDi(high, low, close []float64, timePeriod int32) []float64 {
+func (t *TA) MinusDi(high, low, close []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(high))
@@ -2242,7 +2244,7 @@ optInTimePeriod:(From 1 to 100000)
 Number of period
 
 */
-func MinusDm(high, low []float64, timePeriod int32) []float64 {
+func (t *TA) MinusDm(high, low []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(high))
@@ -2265,7 +2267,7 @@ optInTimePeriod:(From 1 to 100000)
 Number of period
 
 */
-func Mom(real []float64, timePeriod int32) []float64 {
+func (t *TA) Mom(real []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -2280,7 +2282,7 @@ Input = double, double
 Output = double
 
 */
-func Mult(real0, real1 []float64) []float64 {
+func (t *TA) Mult(real0, real1 []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real0))
@@ -2303,7 +2305,7 @@ optInTimePeriod:(From 1 to 100000)
 Number of period
 
 */
-func Natr(high, low, close []float64, timePeriod int32) []float64 {
+func (t *TA) Natr(high, low, close []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(high))
@@ -2318,7 +2320,7 @@ Input = double, Volume
 Output = double
 
 */
-func Obv(real, volume []float64) []float64 {
+func (t *TA) Obv(real, volume []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -2341,7 +2343,7 @@ optInTimePeriod:(From 1 to 100000)
 Number of period
 
 */
-func PlusDi(high, low, close []float64, timePeriod int32) []float64 {
+func (t *TA) PlusDi(high, low, close []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(high))
@@ -2364,7 +2366,7 @@ optInTimePeriod:(From 1 to 100000)
 Number of period
 
 */
-func PlusDm(high, low []float64, timePeriod int32) []float64 {
+func (t *TA) PlusDm(high, low []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(high))
@@ -2395,7 +2397,7 @@ optInMAType:
 Type of Moving Average
 
 */
-func Ppo(real []float64, fastPeriod, slowPeriod, mAType int32) []float64 {
+func (t *TA) Ppo(real []float64, fastPeriod, slowPeriod, mAType int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -2418,7 +2420,7 @@ optInTimePeriod:(From 1 to 100000)
 Number of period
 
 */
-func Roc(real []float64, timePeriod int32) []float64 {
+func (t *TA) Roc(real []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -2441,7 +2443,7 @@ optInTimePeriod:(From 1 to 100000)
 Number of period
 
 */
-func Rocp(real []float64, timePeriod int32) []float64 {
+func (t *TA) Rocp(real []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -2464,7 +2466,7 @@ optInTimePeriod:(From 1 to 100000)
 Number of period
 
 */
-func Rocr(real []float64, timePeriod int32) []float64 {
+func (t *TA) Rocr(real []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -2487,7 +2489,7 @@ optInTimePeriod:(From 1 to 100000)
 Number of period
 
 */
-func Rocr100(real []float64, timePeriod int32) []float64 {
+func (t *TA) Rocr100(real []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -2510,7 +2512,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func Rsi(real []float64, timePeriod int32) []float64 {
+func (t *TA) Rsi(real []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -2537,7 +2539,7 @@ optInMaximum:(From 0 to TA_REAL_MAX)
 Acceleration Factor Maximum value
 
 */
-func Sar(high, low []float64, acceleration, maximum float64) []float64 {
+func (t *TA) Sar(high, low []float64, acceleration, maximum float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(high))
@@ -2588,7 +2590,7 @@ optInAccelerationMaxShort:(From 0 to TA_REAL_MAX)
 Acceleration Factor maximum value for the Short direction
 
 */
-func SarExt(high, low []float64, startValue, offsetOnReverse, accelerationInitLong, accelerationLong, accelerationMaxLong, accelerationInitShort, accelerationShort, accelerationMaxShort float64) []float64 {
+func (t *TA) SarExt(high, low []float64, startValue, offsetOnReverse, accelerationInitLong, accelerationLong, accelerationMaxLong, accelerationInitShort, accelerationShort, accelerationMaxShort float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(high))
@@ -2603,7 +2605,7 @@ Input = double
 Output = double
 
 */
-func Sin(real []float64) []float64 {
+func (t *TA) Sin(real []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -2618,7 +2620,7 @@ Input = double
 Output = double
 
 */
-func Sinh(real []float64) []float64 {
+func (t *TA) Sinh(real []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -2641,7 +2643,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func Sma(real []float64, timePeriod int32) []float64 {
+func (t *TA) Sma(real []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -2656,7 +2658,7 @@ Input = double
 Output = double
 
 */
-func Sqrt(real []float64) []float64 {
+func (t *TA) Sqrt(real []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -2683,7 +2685,7 @@ optInNbDev:(From TA_REAL_MIN to TA_REAL_MAX)
 Nb of deviations
 
 */
-func StdDev(real []float64, timePeriod int32, nbDev float64) []float64 {
+func (t *TA) StdDev(real []float64, timePeriod int32, nbDev float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -2722,7 +2724,7 @@ optInSlowD_MAType:
 Type of Moving Average for Slow-D
 
 */
-func Stoch(high, low, close []float64, fastKPeriod, slowKPeriod, slowKMAType, slowDPeriod, slowDMAType int32) ([]float64, []float64) {
+func (t *TA) Stoch(high, low, close []float64, fastKPeriod, slowKPeriod, slowKMAType, slowDPeriod, slowDMAType int32) ([]float64, []float64) {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outSlowK := make([]float64, len(high))
@@ -2754,7 +2756,7 @@ optInFastD_MAType:
 Type of Moving Average for Fast-D
 
 */
-func Stochf(high, low, close []float64, fastKPeriod, fastDPeriod, fastDMAType int32) ([]float64, []float64) {
+func (t *TA) Stochf(high, low, close []float64, fastKPeriod, fastDPeriod, fastDMAType int32) ([]float64, []float64) {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outFastK := make([]float64, len(high))
@@ -2790,7 +2792,7 @@ optInFastD_MAType:
 Type of Moving Average for Fast-D
 
 */
-func StochRsi(real []float64, timePeriod, fastKPeriod, fastDPeriod, fastDMAType int32) ([]float64, []float64) {
+func (t *TA) StochRsi(real []float64, timePeriod, fastKPeriod, fastDPeriod, fastDMAType int32) ([]float64, []float64) {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outFastK := make([]float64, len(real))
@@ -2806,7 +2808,7 @@ Input = double, double
 Output = double
 
 */
-func Sub(real0, real1 []float64) []float64 {
+func (t *TA) Sub(real0, real1 []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real0))
@@ -2829,7 +2831,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func Sum(real []float64, timePeriod int32) []float64 {
+func (t *TA) Sum(real []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -2856,7 +2858,7 @@ optInVFactor:(From 0 to 1)
 Volume Factor
 
 */
-func T3(real []float64, timePeriod int32, vFactor float64) []float64 {
+func (t *TA) T3(real []float64, timePeriod int32, vFactor float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -2871,7 +2873,7 @@ Input = double
 Output = double
 
 */
-func Tan(real []float64) []float64 {
+func (t *TA) Tan(real []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -2886,7 +2888,7 @@ Input = double
 Output = double
 
 */
-func Tanh(real []float64) []float64 {
+func (t *TA) Tanh(real []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -2909,7 +2911,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func Tema(real []float64, timePeriod int32) []float64 {
+func (t *TA) Tema(real []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -2924,7 +2926,7 @@ Input = High, Low, Close
 Output = double
 
 */
-func Trange(high, low, close []float64) []float64 {
+func (t *TA) Trange(high, low, close []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(high))
@@ -2947,7 +2949,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func TriMa(real []float64, timePeriod int32) []float64 {
+func (t *TA) TriMa(real []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -2970,7 +2972,7 @@ optInTimePeriod:(From 1 to 100000)
 Number of period
 
 */
-func Trix(real []float64, timePeriod int32) []float64 {
+func (t *TA) Trix(real []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -2993,7 +2995,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func Tsf(real []float64, timePeriod int32) []float64 {
+func (t *TA) Tsf(real []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -3008,7 +3010,7 @@ Input = High, Low, Close
 Output = double
 
 */
-func TypPrice(high, low, close []float64) []float64 {
+func (t *TA) TypPrice(high, low, close []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(high))
@@ -3039,7 +3041,7 @@ optInTimePeriod3:(From 1 to 100000)
 Number of bars for 3rd period
 
 */
-func UltOsc(high, low, close []float64, timePeriod1, timePeriod2, timePeriod3 int32) []float64 {
+func (t *TA) UltOsc(high, low, close []float64, timePeriod1, timePeriod2, timePeriod3 int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(high))
@@ -3066,7 +3068,7 @@ optInNbDev:(From TA_REAL_MIN to TA_REAL_MAX)
 Nb of deviations
 
 */
-func Var(real []float64, timePeriod int32, nbDev float64) []float64 {
+func (t *TA) Var(real []float64, timePeriod int32, nbDev float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))
@@ -3081,7 +3083,7 @@ Input = High, Low, Close
 Output = double
 
 */
-func WclPrice(high, low, close []float64) []float64 {
+func (t *TA) WclPrice(high, low, close []float64) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(high))
@@ -3104,7 +3106,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func Willr(high, low, close []float64, timePeriod int32) []float64 {
+func (t *TA) Willr(high, low, close []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(high))
@@ -3127,7 +3129,7 @@ optInTimePeriod:(From 2 to 100000)
 Number of period
 
 */
-func Wma(real []float64, timePeriod int32) []float64 {
+func (t *TA) Wma(real []float64, timePeriod int32) []float64 {
 	var outBegIdx C.int
 	var outNBElement C.int
 	outReal := make([]float64, len(real))

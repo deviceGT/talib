@@ -113,7 +113,7 @@ class Func
       i += 1
     end
     s = @comment + "\n"
-    s += "func #{@name}"
+    s += "func (t *TA) #{@name}"
     s += "(" + args.join(", ") + ")"
     if returnTypes.length > 0
       s += " (#{returnTypes.join(", ")})"
@@ -166,6 +166,8 @@ import (
   \"fmt\"
   \"unsafe\"
 )
+
+type TA struct {}
 
 func init() {
 	n, err := C.TA_Initialize()
